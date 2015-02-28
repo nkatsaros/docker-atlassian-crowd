@@ -25,7 +25,7 @@ ENV CROWD_HOME /var/atlassian/crowd
 # extract crowd
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
   && mkdir -p /opt/atlassian \
-  && curl -o /opt/atlassian/atlassian-crowd.tar.gz -SL 'http://www.atlassian.com/software/crowd/downloads/binary/atlassian-crowd-2.6.7.tar.gz' \
+  && curl -o /opt/atlassian/atlassian-crowd.tar.gz -SL 'https://www.atlassian.com/software/crowd/downloads/binary/atlassian-crowd-2.6.7.tar.gz' \
   && tar xf /opt/atlassian/atlassian-crowd.tar.gz -C /opt/atlassian --strip-components=1 \
   && echo "crowd.home=$CROWD_HOME" > /opt/atlassian/crowd-webapp/WEB-INF/classes/crowd-init.properties \
   && rm -f /opt/atlassian/atlassian-crowd.tar.gz \
