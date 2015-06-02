@@ -19,13 +19,13 @@ RUN apt-get update && apt-get install -y \
     libtcnative-1 \
   && rm -rf /var/lib/apt/lists/*
 
-ENV CROWD_VERSION 2.8.2
+ENV CROWD_VERSION 2.8.3
 ENV CROWD_HOME /var/atlassian/crowd
 
 # extract crowd
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
   && mkdir -p /opt/atlassian \
-  && curl -o /opt/atlassian/atlassian-crowd.tar.gz -SL 'https://www.atlassian.com/software/crowd/downloads/binary/atlassian-crowd-2.8.2.tar.gz' \
+  && curl -o /opt/atlassian/atlassian-crowd.tar.gz -SL 'https://www.atlassian.com/software/crowd/downloads/binary/atlassian-crowd-2.8.3.tar.gz' \
   && tar xf /opt/atlassian/atlassian-crowd.tar.gz -C /opt/atlassian --strip-components=1 \
   && echo "crowd.home=$CROWD_HOME" > /opt/atlassian/crowd-webapp/WEB-INF/classes/crowd-init.properties \
   && rm -f /opt/atlassian/atlassian-crowd.tar.gz \
