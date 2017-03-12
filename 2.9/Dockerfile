@@ -13,18 +13,15 @@ RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
   && curl -o /tmp/gosu.asc -SL "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture).asc" \
   && gpg --verify /tmp/gosu.asc /usr/local/bin/gosu \
   && rm /tmp/gosu.asc \
-  && chmod +x /usr/local/bin/gosu \
-  && apt-get purge -y --auto-remove curl
+  && chmod +x /usr/local/bin/gosu
 
-RUN apt-get update && apt-get install -y \
+RUN apt install -t \
+    jessie-backports \
+    openjdk-8-jre-headless \
     ca-certificates-java
-
-RUN apt-get update && apt-get install -y \
-    openjdk-8-jre-headless
 
 # grab the crowd dependencies
 RUN apt-get update && apt-get install -y \
-    openjdk-8-jdk \
     libtcnative-1 \
   && rm -rf /var/lib/apt/lists/*
 
