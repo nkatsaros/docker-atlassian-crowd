@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
   && apt-get purge -y --auto-remove curl
 
 RUN apt-get update && apt-get install -y \
+    ca-certificates-java
+
+RUN apt-get update && apt-get install -y \
     openjdk-8-jre-headless
 
 # grab the crowd dependencies
