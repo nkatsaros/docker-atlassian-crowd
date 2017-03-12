@@ -16,9 +16,12 @@ RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
   && chmod +x /usr/local/bin/gosu \
   && apt-get purge -y --auto-remove curl
 
+RUN apt-get update && apt-get install -y \
+    openjdk-8-jre-headless
+
 # grab the crowd dependencies
 RUN apt-get update && apt-get install -y \
-    ca-certificates-java openjdk-8-jre openjdk-8-jre-headless openjdk-8-jdk \
+    openjdk-8-jdk \
     libtcnative-1 \
   && rm -rf /var/lib/apt/lists/*
 
