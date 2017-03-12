@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
   && rm /tmp/gosu.asc \
   && chmod +x /usr/local/bin/gosu
 
-RUN apt-get update &&
+RUN apt-get update && \
     apt-get -t jessie-backports install \
     openjdk-8-jre-headless \
     ca-certificates-java
