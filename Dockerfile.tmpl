@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
 
 # grab the crowd dependencies
 RUN apt-get update && apt-get install -y \
-    openjdk-8-jre openjdk-8-headless openjdk-8-jdk \
+    openjdk-8-jre openjdk-8-jre-headless openjdk-8-jdk \
     libtcnative-1 \
   && rm -rf /var/lib/apt/lists/*
 
