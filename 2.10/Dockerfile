@@ -4,7 +4,7 @@ FROM debian:jessie
 RUN groupadd -r atlassian && useradd -r -g atlassian atlassian
 
 # add backports for java 8
-+RUN echo "deb http://http.debian.net/debian jessie-backports main" >> /etc/apt/sources.list
+RUN echo "deb http://http.debian.net/debian jessie-backports main" >> /etc/apt/sources.list
 
 # grab gosu for easy step-down from root
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
